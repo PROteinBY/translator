@@ -3,6 +3,8 @@ var text = '';
 
 const ERROR = "error";
 const OK = "error";
+const DOMEN = "localhost";
+const URL = "http://" + DOMEN + ":8080/translate";
 
 function translationController(data) {
     if (data.result === ERROR) {
@@ -13,12 +15,17 @@ function translationController(data) {
     else if (data.result === OK) {
         $("#output").val(data.text)
     }
+    else {
+        console.log(data)
+    }
 }
 
 function send() {
     $.ajax({
-        type:"GET",
-        url:"http://localhost:8080/",
+        type:"POST",
+        url: URL,
+        contentType: "application/json",
+        dataType: "json",
         data: {
             text: text,
             dict: words
