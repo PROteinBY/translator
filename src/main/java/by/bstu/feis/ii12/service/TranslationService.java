@@ -105,6 +105,10 @@ public class TranslationService {
                     eng = eng.replaceAll(langFunc.getEngPlaceHolders().get(i), placeholderWords.get(i));
                 }
 
+                if (eng.endsWith("?")) {
+                    eng = eng.substring(0, eng.length() - 1);
+                }
+
                 instructions.add(new Pair<>(normInput.substring(start, end), eng));
             }
 
