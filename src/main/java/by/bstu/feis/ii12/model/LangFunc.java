@@ -29,7 +29,7 @@ public class LangFunc {
         String regex = fTxtRus;
 
         for (String rusPlaceHolder : rusPlaceHolders) {
-            regex.replaceAll(rusPlaceHolder, "(?<" + rusPlaceHolder + ">[а-яА-Я\\-]*)");
+            regex = regex.replaceAll(rusPlaceHolder, "(?<" + rusPlaceHolder + ">[а-яА-Я\\-]*)");
         }
 
         return regex;

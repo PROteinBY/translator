@@ -9,10 +9,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,6 +57,16 @@ public class TranslationService {
         for (Pair<String, String> pair : cDict) {
             dict.put(pair.getKey(), pair.getValue());
         }
+
+        Collections.sort(langFuncs, new Comparator<LangFunc>() {
+            @Override
+            public int compare(LangFunc o1, LangFunc o2) {
+                Integer o1_c = o1.getfTxtRus().split("\\s+").length;
+                Integer o2_c = o2.getfTxtRus().split("\\s+").length;
+
+                return o1_c > o2_c ? -1 : (o1_c < o2_c) ? 1 : 0;
+            }
+        });
     }
 
     private List<LangFunc> langFuncs;
