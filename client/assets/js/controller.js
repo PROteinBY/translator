@@ -8,7 +8,7 @@ const URL = "http://" + DOMEN + ":8080/translate";
 
 function translationController(data) {
     console.log("Error controller: " + JSON.stringify(data));
-
+    $("#support-area").hide();
     $("#output").val(data.text)
 }
 
@@ -21,6 +21,7 @@ function errorController(data) {
     $("#support-area").show();
     $("#word").val(word);
     $("#message").val(reason);
+    $("#translation").val('');
 }
 
 function send() {
