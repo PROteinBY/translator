@@ -23,8 +23,7 @@ import java.util.List;
 @EnableWebMvc
 @Configuration
 @ComponentScan("by.bstu.feis.ii12.controller")
-@PropertySource({"classpath:datasource.property",
-                 "classpath:queries.property"})
+@PropertySource({"classpath:datasource.property"})
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
