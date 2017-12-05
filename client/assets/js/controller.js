@@ -9,18 +9,16 @@ const URL = "http://" + DOMEN + ":8080/translate";
 function translationController(data) {
     console.log("Error controller: " + JSON.stringify(data));
     $("#support-area").hide();
+    $("#output").show();
     $("#output").val(data.text)
 }
 
 function errorController(data) {
     console.log("Error controller: " + data.responseText);
-
-    var reason = data.responseJSON.reason;
     var word = data.responseJSON.word;
 
     $("#support-area").show();
     $("#word").val(word);
-    $("#message").val(reason);
     $("#translation").val('');
 }
 
@@ -40,6 +38,8 @@ function send() {
 
 $(document).ready(function(){
     $("#support-area").hide();
+    $("#output").hide();
+
 
     $("#translate").click(function() {
         words = {};

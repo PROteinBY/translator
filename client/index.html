@@ -9,17 +9,19 @@
 </head>
 <body>
 <div class="main">
-    <textarea id="input"></textarea>
-    <button id="translate">Translate</button>
+    <div class="title">Translator</div>
 
-    <div class="row" id="support-area" hidden>
-        <p id="message"></p>
-        <input id="word" type="text" readonly>
-        <input id="translation" type="text">
-        <button id="send-translation">send</button>
+    <div class="content">
+        <textarea id="input" placeholder="text to translate"></textarea>
+        <button id="translate">Translate</button>
+        <div class="row" id="support-area" hidden>
+            <input id="word" type="text" readonly>
+            <input id="translation" type="text" placeholder="translation">
+            <button id="send-translation">send</button>
+        </div>
+        <textarea id="output" readonly></textarea>
     </div>
 
-    <textarea id="output"></textarea>
 </div>
 
 </body>
